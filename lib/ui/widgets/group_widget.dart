@@ -30,7 +30,7 @@ class _GroupWidgetState extends State<GroupWidget> {
           child: const Icon(Icons.add),
           onPressed: () {
             // TODO
-            logInfo('Aqui navegar a AddGroupPage');
+            //logInfo('Aqui navegar a AddGroupPage');
           },
         ));
   }
