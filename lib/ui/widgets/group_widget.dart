@@ -4,6 +4,7 @@ import 'package:loggy/loggy.dart';
 import 'package:misiontic_team_management/data/model/group.dart';
 import 'package:misiontic_team_management/domain/controller/firestore_controller.dart';
 import 'package:misiontic_team_management/ui/pages/add_group_page.dart';
+import 'package:misiontic_team_management/ui/pages/add_sesion_page.dart';
 import 'package:prompt_dialog/prompt_dialog.dart';
 
 class GroupWidget extends StatefulWidget {
@@ -20,17 +21,28 @@ class _GroupWidgetState extends State<GroupWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
         key: const ValueKey("groupsScaffold"),
-        body: const Center(
+        body: Obx(
+          () => ListView.builder(
+              itemCount: firebaseController.groups.length,
+              padding: EdgeInsets.only(top: 20.0),
+              itemBuilder: (BuildContext context, int index) {
+                return _buildItem(context, firebaseController.groups[index]);
+              }),
+        ),
+        /*const Center(
           // TODO
           child: Text(
               'Aquí colocar la lista de grupos, recordar que se se debe escuchar el controlador (groups) con obx'),
-        ),
+        ),*/
         floatingActionButton: FloatingActionButton(
           key: const ValueKey("addGroupAction"),
           child: const Icon(Icons.add),
           onPressed: () {
-            // TODO
-            //logInfo('Aqui navegar a AddGroupPage');
+            /*Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const AddGroupPage()));*/
+            //TODO
+            Get.to(AddGroupPage());
+            logInfo('Aqui navegar a AddGroupPage');
           },
         ));
   }

@@ -18,9 +18,9 @@ class _FirebaseLogInState extends State<FirebaseLogIn> {
   _login(theEmail, thePassword) async {
     print('_login $theEmail $thePassword');
     try {
-      // TODO
-      await authenticationController.login(theEmail, thePassword);
+      authenticationController.login(theEmail, thePassword);
       //logInfo('Aquí llamar al método login del authenticationController con await');
+
     } catch (err) {
       Get.snackbar(
         "Login",
@@ -103,8 +103,8 @@ class _FirebaseLogInState extends State<FirebaseLogIn> {
               onPressed: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => FirebaseSignUp()));
-                // TODO
-                //logInfo('Aquí navegar a  FirebaseSignUp');
+                //Get.to(FirebaseSignUp());
+                logInfo('Aquí navegar a  FirebaseSignUp');
               },
               child: const Text("Create account"))
         ],

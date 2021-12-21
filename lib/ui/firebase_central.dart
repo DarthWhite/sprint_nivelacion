@@ -19,3 +19,4 @@ class FirebaseCentral extends StatelessWidget {
     );
   }
 }
+
